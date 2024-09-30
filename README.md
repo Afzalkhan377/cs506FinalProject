@@ -1,7 +1,7 @@
 
 
-#CS 506: Final Project Proposal
-##Afzal Khan, Haider Khan, Mohammed Faizan Murshid, Rashfiqur Rahman, Maaz Shahzad
+# CS 506: Final Project Proposal
+## Afzal Khan, Haider Khan, Mohammed Faizan Murshid, Rashfiqur Rahman, Maaz Shahzad
 
 Description: Fitrec is a hotspot among students. As the only gym in Boston University’s main campus, it is crowded quite often, making it insufficient for students to get a proper workout. Therefore, our project aims to analyze how different elements such as weather, day of time, and time of semester (e.g: first week of classes, midterm season, finals season, etc) affect people going to Fitrec. Using this information, we also plan to predict ultimately what’s the best time and day to visit the Fitrec.
 

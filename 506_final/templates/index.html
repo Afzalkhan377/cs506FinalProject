@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Crowdedness Predictor</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Find the Best Time to Workout</h1>
+        
+        <form method="POST">
+            <h2>Select Available Days</h2>
+            <div class="options">
+                {% for day in days %}
+                <label>
+                    <input type="checkbox" name="days" value="{{ day }}"> {{ day }}
+                </label>
+                {% endfor %}
+            </div>
+
+            <h2>Select Preferred Timeslots</h2>
+            <div class="options">
+                {% for timeslot in timeslots %}
+                <label>
+                    <input type="checkbox" name="timeslots" value="{{ timeslot }}"> {{ timeslot }}
+                </label>
+                {% endfor %}
+            </div>
+
+            <button type="submit">Suggest</button>
+        </form>
+
+        {% if suggestion %}
+            {% if suggestion.day %}
+            <div class="result">
+                <h2>Suggested Workout Time</h2>
+                <p><strong>Day:</strong> {{ suggestion.day }}</p>
+                <p><strong>Timeslot:</strong> {{ suggestion.timeslot }}</p>
+                <p><strong>Crowdedness Level:</strong> {{ suggestion.crowdedness }}</p>
+            </div>
+            {% else %}
+            <div class="result">
+                <h2>No Matching Data</h2>
+                <p>{{ suggestion }}</p>
+            </div>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>

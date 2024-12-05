@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicting Crowdedness at Fitrec</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/visualizations">Visualizations</a>
+        <a href="/predictions">Models</a>
+    </div>
+    <div class="container">
+        <h1>Predicting Crowdedness at Fitrec</h1>
+        <p>
+            This page presents the performance of various machine learning models used to classify whether the gym at Boston University's Fitrec
+            is crowded. A crowded gym is defined as having a crowdedness level ≥ 4. The dataset was split into a training set (75%) and a testing set (25%).
+            Here's an overview of the models, their performance, and why certain models might have outperformed others.
+        </p>
+
+        <h2>Model Performance Table</h2>
+        <table>
+            <tr>
+                <th>Model</th>
+                <th>Accuracy</th>
+                <th>Precision</th>
+                <th>Recall</th>
+                <th>F1 Score</th>
+            </tr>
+            {% for model in models %}
+            <tr>
+                <td>{{ model.name }}</td>
+                <td>{{ model.accuracy }}</td>
+                <td>{{ model.precision }}</td>
+                <td>{{ model.recall }}</td>
+                <td>{{ model.f1 }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h2>Insights and Model Explanations</h2>
+
+        <h3>1. Logistic Regression</h3>
+        <p>
+            Logistic regression is a linear model that works well for binary classification. It assumes a linear relationship between the features 
+            and the log odds of the target. Despite its simplicity, it provided a baseline accuracy of 54%. This lower performance may be attributed 
+            to the dataset's complexity, as the relationships between features and crowdedness might not be strictly linear.
+        </p>
+
+        <h3>2. Random Forest Classifier</h3>
+        <p>
+            Random forests are ensemble models that use decision trees to capture non-linear relationships. The random forest performed better than 
+            logistic regression, achieving an accuracy of 69%. It benefited from the ability to handle interactions between features like time of day 
+            and weekly frequency. However, the small dataset size limited its performance, as more data could help train deeper trees.
+        </p>
+
+        <h3>3. Gradient Boosting Classifier</h3>
+        <p>
+            Gradient boosting builds trees sequentially, learning from the errors of previous trees. This model achieved 62% accuracy, slightly lower 
+            than the random forest. While it is often better for datasets with complex patterns, the limited size and noise in this dataset might have 
+            hindered its performance.
+        </p>
+
+        <h3>4. Support Vector Machine (SVM)</h3>
+        <p>
+            SVM aims to find a hyperplane that best separates the data into classes. With a linear kernel, it achieved an accuracy of 73%. SVM worked 
+            well because it focuses on the margin between classes, making it robust to overlapping data points. However, it could struggle with larger 
+            datasets due to computational complexity.
+        </p>
+
+        <h3>5. K-Nearest Neighbors (KNN)</h3>
+        <p>
+            KNN is a simple algorithm that assigns a class based on the majority vote of the nearest neighbors. It performed poorly with an accuracy 
+            of 54%, likely because the dataset is small, and feature scaling could have introduced noise. KNN works best with well-distributed data and 
+            larger datasets.
+        </p>
+
+        <h3>6. Neural Network</h3>
+        <p>
+            The neural network model achieved 69% accuracy, similar to the random forest. While neural networks excel at capturing complex patterns, 
+            they require larger datasets for training. The small size of the dataset likely led to overfitting, limiting its performance. Increasing 
+            the dataset size could help this model perform better.
+        </p>
+
+        <h2>Train-Test Split Balance</h2>
+        <p>
+            The dataset was split into 75% training data and 25% testing data to ensure sufficient data for training while retaining a meaningful 
+            testing set for evaluation. The relatively small dataset size (100 points) might contribute to lower model performance, as more data 
+            typically improves the ability to generalize.
+        </p>
+    </div>
+</body>
+</html>

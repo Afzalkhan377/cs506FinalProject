@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizations</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/visualizations">Visualizations</a>
+        <a href="/predictions">Models</a>
+    </div>
+    <div class="container">
+        <h1>Visualizations</h1>
+        <p>
+            Visualizations provide a clear understanding of the data and highlight key insights. They allow us to explore patterns such as gym crowdedness at different times, how exams or weather affect gym visits, and the days when students prefer to work out. These insights are crucial for planning predictions and optimizing gym visits.
+        </p>
+        {% for plot in plots %}
+        <div class="plot-container">
+            <img src="/static/plots/{{ plot.file }}" alt="{{ plot.desc }}">
+            <p>{{ plot.desc }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

@@ -4,12 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gym Crowdedness Predictor</title>
+    
     <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/visualizations">Visualizations</a>
+        <a href="/predictions">Models</a>
+    </div>
     <div class="container">
-        <h1>Find the Best Time to Workout</h1>
-        
+        <h1>Gym Crowdedness Predictor</h1>
+        <p>
+            At Boston University, Fitrec is a hotspot among students. As the only gym in BU's main campus, it is crowded often, 
+            making it insufficient for students to get a proper workout. Therefore, our project aims to analyze how different elements 
+            such as weather, time of day, and time of semester (e.g: first week of classes, midterm season, finals season, etc) affect 
+            people going to Fitrec. Using this information, we also plan to ultimately predict what’s the best time and day to visit the Fitrec. 
+            Analyze the crowdedness at Boston University's Fitrec gym based on time, weather, and other factors. Use the form below to select 
+            days and timeslots to get personalized workout suggestions.
+        </p>
         <form method="POST">
             <h2>Select Available Days</h2>
             <div class="options">
@@ -19,7 +32,6 @@
                 </label>
                 {% endfor %}
             </div>
-
             <h2>Select Preferred Timeslots</h2>
             <div class="options">
                 {% for timeslot in timeslots %}
@@ -28,10 +40,8 @@
                 </label>
                 {% endfor %}
             </div>
-
             <button type="submit">Suggest</button>
         </form>
-
         {% if suggestion %}
             {% if suggestion.day %}
             <div class="result">

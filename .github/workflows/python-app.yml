@@ -25,7 +25,7 @@ jobs:
         if [ -d "venv" ]; then rm -rf venv; fi
     
     - name: Install dependencies using Makefile
-      run: make install
+      run: make -f 506_final/Makefile install
 
     - name: Run the Flask server
       run: |

@@ -1,7 +1,6 @@
 name: Flask Application Workflow
 
 on:
-  # Trigger the workflow on push or pull request to the main branch
   push:
     branches: [ "main" ]
   pull_request:
@@ -26,13 +25,20 @@ jobs:
       with:
         python-version: "3.10"
 
-    # Step 3: Navigate to the project directory and install dependencies
+    # Step 3: Navigate to the project directory and create the virtual environment
+    - name: Create virtual environment
+      run: |
+        cd 506_final
+        python3 -m venv venv
+
+    # Step 4: Install dependencies using Makefile
     - name: Install dependencies
       run: |
         cd 506_final
+        ./venv/bin/pip install --upgrade pip  # Upgrade pip in the virtual environment
         make install
 
-    # Step 4: Run the Flask application
+    # Step 5: Run the Flask application
     - name: Run Flask app
       run: |
         cd 506_final
@@ -40,7 +46,7 @@ jobs:
         sleep 10 # Give the Flask app some time to start
         curl http://127.0.0.1:4000 || echo "Flask app failed to start"
 
-    # Step 5: Clean up the environment (optional)
+    # Step 6: Clean up the environment (optional)
     - name: Clean up environment
       run: |
         cd 506_final

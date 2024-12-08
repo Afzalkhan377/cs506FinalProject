@@ -1,6 +1,7 @@
- name: Flask Application Workflow
+name: Flask Application Workflow
 
 on:
+  # Trigger the workflow on push or pull request to the main branch
   push:
     branches: [ "main" ]
   pull_request:
@@ -44,4 +45,3 @@ jobs:
       run: |
         cd 506_final
         make clean
-

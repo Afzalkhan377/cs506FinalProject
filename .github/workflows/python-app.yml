@@ -1,4 +1,4 @@
-name: Flask Application Workflow
+ name: Flask Application Workflow
 
 on:
   push:
@@ -25,19 +25,23 @@ jobs:
       with:
         python-version: "3.10"
 
-    # Step 3: Install dependencies using the Makefile
+    # Step 3: Navigate to the project directory and install dependencies
     - name: Install dependencies
       run: |
+        cd 506_final
         make install
 
     # Step 4: Run the Flask application
     - name: Run Flask app
       run: |
+        cd 506_final
         make run &
         sleep 10 # Give the Flask app some time to start
         curl http://127.0.0.1:4000 || echo "Flask app failed to start"
-    
+
     # Step 5: Clean up the environment (optional)
     - name: Clean up environment
       run: |
+        cd 506_final
         make clean
+

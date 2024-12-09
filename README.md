@@ -9,7 +9,7 @@ Fitrec is a hotspot among students. As the only gym in Boston University’s mai
 - Please navigate to "506_final" folder.
 - Run “make install” - this will install any necessary packages
 - Run “make run” to run the interactive application
-  In the root directory, attached is the final report. 
+- In the root directory, attached is the final report. 
 
 ### Mid Semester Presentation: 
 https://youtu.be/BasrIvTvmOg 

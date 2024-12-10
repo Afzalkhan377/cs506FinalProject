@@ -48,6 +48,13 @@ Key Features:
 - Weather Influence: Binary indicator reflecting gym attendance during adverse weather.
 - Exam Periods: Captures variations in gym attendance during midterms and finals.
 - Rationale: These features directly relate to the factors influencing gym crowdedness and provide actionable insights for predictive modeling.
+### Visualizations
+<img width="578" alt="Screen Shot 2024-12-09 at 11 19 39 PM" src="https://github.com/user-attachments/assets/372445cd-0a42-4dac-96a1-0bd28630a364">
+<img width="653" alt="Screen Shot 2024-12-09 at 11 20 26 PM" src="https://github.com/user-attachments/assets/9be54baa-8483-4f52-abe6-87b21a355966">
+
+<img width="606" alt="Screen Shot 2024-12-09 at 11 21 07 PM" src="https://github.com/user-attachments/assets/bc381e97-2da6-41c3-81b7-a7add251611d">
+<img width="555" alt="Screen Shot 2024-12-09 at 11 21 22 PM" src="https://github.com/user-attachments/assets/b00b264c-985a-4537-b843-0b57a085fbed">
+
 
 ### Model Training
 The goal of model training was to classify whether the Fitrec gym is crowded or not based on the survey data. A gym is considered crowded if the crowdedness level is ≥ 4. To achieve this, the dataset was split into a training set (75%) and a testing set (25%). Various machine learning models were evaluated for their performance on this classification task.
